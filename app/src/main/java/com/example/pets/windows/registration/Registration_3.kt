@@ -1,5 +1,6 @@
 package com.example.pets.windows.registration
 
+import androidx.compose.foundation.background
 import androidx.compose.material.icons.filled.Person
 
 import androidx.compose.foundation.clickable
@@ -32,17 +33,22 @@ fun Window_Registration_3(){
     }
 
 
-    Box(Modifier.fillMaxSize()) {
+    Box(
+        Modifier
+            .fillMaxSize()
+            .background(colorResource(id = R.color.Font_Main))) {
         Column(
             Modifier
                 .padding(start = 20.dp, end = 20.dp, top = 52.dp)
                 .fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-            Text(text ="Регистрация", fontSize = 28.sp)
+            Text(text ="Регистрация", fontSize = 28.sp,color= colorResource(id = R.color.color_tema))
             Box(
                 Modifier
                     .fillMaxWidth()
                     .padding(top = 32.dp, start = 16.dp)) {
-                Text("Введите имя", fontSize = 14.sp, modifier =Modifier.align(Alignment.BottomStart))
+                Text("Введите имя", fontSize = 14.sp, modifier =Modifier.align(Alignment.BottomStart), color = colorResource(
+                    id = R.color.color_text
+                ))
             }
             TextField(
                 value = Name,
@@ -51,11 +57,12 @@ fun Window_Registration_3(){
                 shape = RoundedCornerShape(20.dp),
                 maxLines = 1,
                 colors = TextFieldDefaults.textFieldColors(
-                    textColor = Color.Gray,
+                    textColor = colorResource(id = R.color.color_text),
 
                     focusedIndicatorColor = Color.Transparent,
                     unfocusedIndicatorColor = Color.Transparent,
-                    disabledIndicatorColor = Color.Transparent
+                    disabledIndicatorColor = Color.Transparent,
+                    backgroundColor = Color.White
                 ),
                 modifier = Modifier.fillMaxWidth()
             )
@@ -66,11 +73,11 @@ fun Window_Registration_3(){
 
             },
                 shape = RoundedCornerShape(20.dp),
-                colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(id = R.color.gray), contentColor = Color.Black),
+                colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(id = R.color.icon), contentColor = Color.Black),
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 24.dp)) {
-                Text(text = "Дальше", fontSize = 22.sp)
+                Text(text = "Дальше", fontSize = 22.sp,color= Color.White)
             }
 
 

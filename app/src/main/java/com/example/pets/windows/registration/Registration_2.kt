@@ -1,6 +1,7 @@
 package com.example.pets.windows.registration
 
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -33,17 +34,22 @@ fun Window_Registration_2(){
     }
 
 
-    Box(Modifier.fillMaxSize()) {
+    Box(
+        Modifier
+            .fillMaxSize()
+            .background(colorResource(id = R.color.Font_Main))) {
         Column(
             Modifier
                 .padding(start = 20.dp, end = 20.dp, top = 52.dp)
                 .fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-            Text(text ="Регистрация", fontSize = 28.sp)
+            Text(text ="Регистрация", fontSize = 28.sp,color= colorResource(id = R.color.color_tema))
             Box(
                 Modifier
                     .fillMaxWidth()
                     .padding(top = 32.dp, start = 16.dp)) {
-                Text("Введите код подтверждения", fontSize = 14.sp, modifier =Modifier.align(Alignment.BottomStart))
+                Text("Введите код подтверждения", fontSize = 14.sp, modifier =Modifier.align(Alignment.BottomStart),color= colorResource(
+                    id = R.color.color_text
+                ))
             }
             TextField(
                 value = code,
@@ -51,28 +57,35 @@ fun Window_Registration_2(){
                 shape = RoundedCornerShape(20.dp),
                 maxLines = 1,
                 colors = TextFieldDefaults.textFieldColors(
-                    textColor = Color.Gray,
+                    textColor = colorResource(id = R.color.color_text),
 
                     focusedIndicatorColor = Color.Transparent,
                     unfocusedIndicatorColor = Color.Transparent,
-                    disabledIndicatorColor = Color.Transparent
+                    disabledIndicatorColor = Color.Transparent,
+                    backgroundColor = Color.White
+
                 ),
                 modifier = Modifier.fillMaxWidth()
             )
+            Text(text = "Неверный код, попробуйте еще раз", fontSize = 12.sp, color = Color.Red, modifier = Modifier.padding(top=8.dp))
             Button(onClick = {
 
                 navigator?.run { navigate("Registration_3")}
 
             },
                 shape = RoundedCornerShape(20.dp),
-                colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(id = R.color.gray), contentColor = Color.Black),
+                colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(id = R.color.icon), contentColor = Color.Black),
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 24.dp)) {
-                Text(text = "Дальше", fontSize = 22.sp)
+                Text(text = "Дальше", fontSize = 22.sp,color=Color.White)
             }
-            Text(text = stringResource(id = R.string.xyz),lineHeight = 16.sp, letterSpacing = 0.4.sp , fontSize = 12.sp, textAlign = TextAlign.Center ,modifier = Modifier.padding(top=8.dp,start=18.5.dp,end=18.5.dp))
-            Text(text="Выслать еще раз", fontSize = 14.sp,modifier = Modifier.padding(top=24.dp).clickable {  })
+            Text(text = stringResource(id = R.string.xyz),lineHeight = 16.sp, letterSpacing = 0.4.sp , fontSize = 12.sp, textAlign = TextAlign.Center ,modifier = Modifier.padding(top=8.dp,start=18.5.dp,end=18.5.dp),color= colorResource(
+                id = R.color.color_text
+            ))
+            Text(text="Выслать еще раз", fontSize = 14.sp,modifier = Modifier
+                .padding(top = 24.dp)
+                .clickable { }, color = colorResource(id = R.color.color_text))
 
         }
 

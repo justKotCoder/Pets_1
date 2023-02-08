@@ -3,6 +3,7 @@ package com.example.pets.windows.registration
 
 
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -34,17 +35,22 @@ fun Window_Registration_4(){
         mutableStateOf("")
     }
 
-    Box(Modifier.fillMaxSize()) {
+    Box(
+        Modifier
+            .fillMaxSize()
+            .background(colorResource(id = R.color.Font_Main))) {
         Column(
             Modifier
                 .padding(start = 20.dp, end = 20.dp, top = 52.dp)
                 .fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-            Text(text ="Регистрация", fontSize = 28.sp)
+            Text(text ="Регистрация", fontSize = 28.sp, color = colorResource(id = R.color.color_tema))
             Box(
                 Modifier
                     .fillMaxWidth()
                     .padding(top = 32.dp, start = 16.dp)) {
-                Text("Придумайте пароль", fontSize = 14.sp, modifier =Modifier.align(Alignment.BottomStart))
+                Text("Придумайте пароль", fontSize = 14.sp, modifier =Modifier.align(Alignment.BottomStart),color= colorResource(
+                    id = R.color.color_text
+                ))
             }
             TextField(
                 value = password,
@@ -53,11 +59,12 @@ fun Window_Registration_4(){
                 shape = RoundedCornerShape(20.dp),
                 maxLines = 1,
                 colors = TextFieldDefaults.textFieldColors(
-                    textColor = Color.Gray,
+                    textColor = colorResource(id = R.color.color_text),
 
                     focusedIndicatorColor = Color.Transparent,
                     unfocusedIndicatorColor = Color.Transparent,
-                    disabledIndicatorColor = Color.Transparent
+                    disabledIndicatorColor = Color.Transparent,
+                    backgroundColor = Color.White
                 ),
                 modifier = Modifier.fillMaxWidth()
             )
@@ -65,7 +72,9 @@ fun Window_Registration_4(){
                 Modifier
                     .fillMaxWidth()
                     .padding(top = 16.dp, start = 16.dp)) {
-                Text("Повторите пароль", fontSize = 14.sp, modifier =Modifier.align(Alignment.BottomStart))
+                Text("Повторите пароль", fontSize = 14.sp, modifier =Modifier.align(Alignment.BottomStart),color= colorResource(
+                    id = R.color.color_text
+                ))
             }
             TextField(
                 value = copy_password,
@@ -74,25 +83,17 @@ fun Window_Registration_4(){
                 shape = RoundedCornerShape(20.dp),
                 maxLines = 1,
                 colors = TextFieldDefaults.textFieldColors(
-                    textColor = Color.Gray,
+                    textColor = colorResource(id = R.color.color_text),
 
                     focusedIndicatorColor = Color.Transparent,
                     unfocusedIndicatorColor = Color.Transparent,
-                    disabledIndicatorColor = Color.Transparent
+                    disabledIndicatorColor = Color.Transparent,
+                    backgroundColor = Color.White
                 ),
                 modifier = Modifier.fillMaxWidth(),
                 visualTransformation = PasswordVisualTransformation()
             )
-            Box(
-                Modifier
-                    .fillMaxWidth()
-                    .padding(end = 9.dp)) {
-                Text("", fontSize = 14.sp,
-                    modifier = Modifier
-                        .align(Alignment.BottomEnd)
-                        .clickable { }
-                )
-            }
+            Text(text = "Пароли не совпадают", fontSize = 12.sp, color = Color.Red, modifier = Modifier.padding(top=8.dp))
             Button(onClick = {
 
                 navigator?.run { navigate("Autorization"){popUpTo(0)}
@@ -100,11 +101,11 @@ fun Window_Registration_4(){
 
             },
                 shape = RoundedCornerShape(20.dp),
-                colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(id = R.color.gray), contentColor = Color.Black),
+                colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(id = R.color.icon), contentColor = Color.Black),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 44.dp)) {
-                Text(text = "Дальше", fontSize = 22.sp)
+                    .padding(top = 16.dp)) {
+                Text(text = "Дальше", fontSize = 22.sp,color=Color.White)
             }
 
 

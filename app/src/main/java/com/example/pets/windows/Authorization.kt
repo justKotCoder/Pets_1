@@ -1,5 +1,6 @@
 package com.example.pets.windows
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -30,17 +31,22 @@ fun Window_Autorization(){
     var password by remember {
         mutableStateOf("")
     }
-    Box(Modifier.fillMaxSize()) {
+    Box(
+        Modifier
+            .fillMaxSize()
+            .background(color = colorResource(id = R.color.Font_Main))) {
         Column(
             Modifier
                 .padding(start = 20.dp, end = 20.dp, top = 52.dp)
                 .fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-            Text(text ="Добро Пожаловать", fontSize = 28.sp)
+            Text(text ="Добро Пожаловать", fontSize = 28.sp, color = colorResource(id = R.color.color_tema))
             Box(
                 Modifier
                     .fillMaxWidth()
                     .padding(top = 32.dp, start = 16.dp)) {
-                Text("Введите email", fontSize = 14.sp, modifier =Modifier.align(Alignment.BottomStart))
+                Text("Введите email", fontSize = 14.sp, modifier =Modifier.align(Alignment.BottomStart),color= colorResource(
+                    id = R.color.color_text
+                ))
             }
             TextField(
                     value = email,
@@ -49,11 +55,11 @@ fun Window_Autorization(){
             shape = RoundedCornerShape(20.dp),
             maxLines = 1,
             colors = TextFieldDefaults.textFieldColors(
-                textColor = Color.Gray,
-
+                textColor = colorResource(id = R.color.color_text),
                 focusedIndicatorColor = Color.Transparent,
                 unfocusedIndicatorColor = Color.Transparent,
-                disabledIndicatorColor = Color.Transparent
+                disabledIndicatorColor = Color.Transparent,
+                backgroundColor = Color.White
             ),
             modifier = Modifier.fillMaxWidth()
             )
@@ -61,7 +67,9 @@ fun Window_Autorization(){
                 Modifier
                     .fillMaxWidth()
                     .padding(top = 16.dp, start = 16.dp)) {
-                Text("Введите пароль", fontSize = 14.sp, modifier =Modifier.align(Alignment.BottomStart))
+                Text("Введите пароль", fontSize = 14.sp, modifier =Modifier.align(Alignment.BottomStart), color = colorResource(
+                    id = R.color.color_text
+                ))
             }
             TextField(
                 value = password,
@@ -70,11 +78,11 @@ fun Window_Autorization(){
                 shape = RoundedCornerShape(20.dp),
                 maxLines = 1,
                 colors = TextFieldDefaults.textFieldColors(
-                    textColor = Color.Gray,
-
+                    textColor = colorResource(id = R.color.color_text),
                     focusedIndicatorColor = Color.Transparent,
                     unfocusedIndicatorColor = Color.Transparent,
-                    disabledIndicatorColor = Color.Transparent
+                    disabledIndicatorColor = Color.Transparent,
+                    backgroundColor = Color.White
                 ),
                 modifier = Modifier.fillMaxWidth(),
                 visualTransformation = PasswordVisualTransformation()
@@ -86,23 +94,26 @@ fun Window_Autorization(){
                 Text("Забыли пароль?", fontSize = 14.sp,
                     modifier = Modifier
                         .align(Alignment.BottomEnd)
-                        .clickable { navigator?.navigate("Password_Recovery_1") }
+                        .clickable { navigator?.navigate("Password_Recovery_1") },
+                    color = colorResource(id = R.color.color_text)
                 )
             }
             Button(onClick = { navigator?.navigate("Main") },
                 shape = RoundedCornerShape(20.dp),
-                colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(id = R.color.gray), contentColor = Color.Black),
+                colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(id = R.color.icon), contentColor = Color.Black),
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 54.dp)) {
-                Text(text = "Войти", fontSize = 22.sp)
+                Text(text = "Войти", fontSize = 22.sp,color=Color.White)
             }
             Text(
                 text = "Регистрация",
                 fontSize = 14.sp,
                 modifier = Modifier
                     .padding(top = 8.dp)
-                    .clickable {navigator?.navigate("Registration_1") })
+                    .clickable { navigator?.navigate("Registration_1") },
+                color= colorResource(id = R.color.color_1)
+            )
             
         }
         
