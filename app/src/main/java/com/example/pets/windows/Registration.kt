@@ -2,6 +2,7 @@ package com.example.pets.windows
 
 
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -36,7 +37,9 @@ fun Window_Registration(){
     val scope = rememberCoroutineScope()
     val snackbarHostState = remember { mutableStateOf(SnackbarHostState()) }
 
-    Box(Modifier.fillMaxSize()) {
+    Box(
+        Modifier
+            .fillMaxSize()) {
         Column(
             Modifier
                 .padding(start = 20.dp, end = 20.dp, top = 52.dp)
@@ -110,7 +113,9 @@ fun Window_Registration(){
                     .padding(top = 54.dp)) {
                 Text(text = "Зарегистрироваться", fontSize = 22.sp)
             }
-            Text(text = "Уже зарегистрирован", fontSize = 14.sp, modifier = Modifier.padding(top=8.dp).clickable { navigator?.run { navigate("Autorization") } })
+            Text(text = "Уже зарегистрирован", fontSize = 14.sp, modifier = Modifier
+                .padding(top = 8.dp)
+                .clickable { navigator?.run { navigate("Autorization") } })
 
         }
         SnackbarHost(snackbarHostState.value,Modifier.align(Alignment.BottomEnd))

@@ -126,8 +126,8 @@ class MainActivity : ComponentActivity() {
             }
         }
         lifecycleScope.launch {
-            delay(3000)
-            navigator?.run { navigate("Autorization"){popUpTo(0)}}
+           // delay(3000)
+           // navigator?.run { navigate("Autorization"){popUpTo(0)}}
         }
 
     }

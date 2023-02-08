@@ -16,7 +16,7 @@ var navigator: NavHostController? =null
 fun Nav(){
     val navController = rememberNavController()
     navigator=navController
-    NavHost(navController = navController, startDestination = "GG"){
+    NavHost(navController = navController, startDestination = "Autorization"){
 
         composable(route = "Main"){
             Window_Shop()
