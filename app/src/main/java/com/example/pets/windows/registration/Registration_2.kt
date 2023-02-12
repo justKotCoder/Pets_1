@@ -33,7 +33,7 @@ fun Window_Registration_2(){
     var code = remember {
         mutableStateOf("")
     }
-    
+
 
 
     Box(
