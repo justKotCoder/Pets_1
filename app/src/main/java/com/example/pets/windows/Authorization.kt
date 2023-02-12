@@ -14,10 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -33,12 +30,6 @@ fun Window_Autorization(){
     }
     var password by remember {
         mutableStateOf("")
-    }
-    var Error by remember {
-        mutableStateOf(false)
-    }
-    var Visibility_password_1 by remember {
-        mutableStateOf(false)
     }
     Box(
         Modifier
@@ -59,8 +50,7 @@ fun Window_Autorization(){
             }
             TextField(
                     value = email,
-            onValueChange ={email=it
-                           Error=false},
+            onValueChange ={email=it},
             leadingIcon = { Icon(Icons.Filled.Email, contentDescription = "Поиск") },
             shape = RoundedCornerShape(20.dp),
             maxLines = 1,
@@ -69,8 +59,7 @@ fun Window_Autorization(){
                 focusedIndicatorColor = Color.Transparent,
                 unfocusedIndicatorColor = Color.Transparent,
                 disabledIndicatorColor = Color.Transparent,
-                backgroundColor = if(Error==false){Color.White}else{
-                    colorResource(id = R.color.Error)}
+                backgroundColor = Color.White
             ),
             modifier = Modifier.fillMaxWidth()
             )
@@ -84,13 +73,8 @@ fun Window_Autorization(){
             }
             TextField(
                 value = password,
-                onValueChange ={password=it
-                    Error=false},
-                leadingIcon = { Icon(Icons.Filled.Lock, contentDescription = "Поиск") },trailingIcon = { if(Visibility_password_1==false){
-                    Icon(painterResource(id = R.drawable.visibility_off), contentDescription =null, modifier = Modifier.clickable { Visibility_password_1=true })
-                }
-                else{Icon(painterResource(id = R.drawable.visibility_on), contentDescription =null, modifier = Modifier.clickable { Visibility_password_1=false })}               }
-                ,
+                onValueChange ={password=it},
+                leadingIcon = { Icon(Icons.Filled.Lock, contentDescription = "Поиск") },
                 shape = RoundedCornerShape(20.dp),
                 maxLines = 1,
                 colors = TextFieldDefaults.textFieldColors(
@@ -98,13 +82,10 @@ fun Window_Autorization(){
                     focusedIndicatorColor = Color.Transparent,
                     unfocusedIndicatorColor = Color.Transparent,
                     disabledIndicatorColor = Color.Transparent,
-                    backgroundColor = if(Error==false){Color.White}else{
-                        colorResource(id = R.color.Error)}
+                    backgroundColor = Color.White
                 ),
-                modifier = Modifier.fillMaxWidth()
-                    ,
-                visualTransformation = if(Visibility_password_1==false){PasswordVisualTransformation()}else{
-                    VisualTransformation.None}
+                modifier = Modifier.fillMaxWidth(),
+                visualTransformation = PasswordVisualTransformation()
             )
             Box(
                 Modifier
@@ -117,20 +98,12 @@ fun Window_Autorization(){
                     color = colorResource(id = R.color.color_text)
                 )
             }
-            Text(text = "Введенные данные не верные\nПроверьте правильность email и пароля", fontSize = 14.sp, modifier = Modifier.padding(top=4.dp), textAlign = TextAlign.Center, color = if(Error==true){Color.Red}else{Color.Transparent})
-            Button(onClick = {
-                if(password=="000" && email=="000"){
-                    navigator?.navigate("Main")
-                }
-                else{
-                    Error=true
-                }
-                             },
+            Button(onClick = { navigator?.navigate("Main") },
                 shape = RoundedCornerShape(20.dp),
                 colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(id = R.color.icon), contentColor = Color.Black),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 16.dp)) {
+                    .padding(top = 54.dp)) {
                 Text(text = "Войти", fontSize = 22.sp,color=Color.White)
             }
             Text(
