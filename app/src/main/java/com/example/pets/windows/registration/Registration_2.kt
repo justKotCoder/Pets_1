@@ -1,6 +1,7 @@
 package com.example.pets.windows.registration
 
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -29,9 +30,10 @@ import kotlinx.coroutines.launch
 @Composable
 @Preview(showSystemUi = true, showBackground = true)
 fun Window_Registration_2(){
-    var code by remember {
+    var code = remember {
         mutableStateOf("")
     }
+    
 
 
     Box(
@@ -53,12 +55,12 @@ fun Window_Registration_2(){
             }
             Box(){
             TextField(
-                value = "",
-                onValueChange ={code=it},
+                value = code.value,
+                onValueChange ={if (it.length<=5){code.value= it}},
                 shape = RoundedCornerShape(20.dp),
                 maxLines = 1,
                 colors = TextFieldDefaults.textFieldColors(
-                    textColor = colorResource(id = R.color.color_text),
+                    textColor = Color.Transparent,
                     cursorColor = Color.Transparent,
                     focusedIndicatorColor = Color.Transparent,
                     unfocusedIndicatorColor = Color.Transparent,
@@ -68,18 +70,24 @@ fun Window_Registration_2(){
                 ),
                 modifier = Modifier.fillMaxWidth()
             )
-                Row(modifier = Modifier.fillMaxWidth().background(Color.Red).padding(top=8.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.Center){
+                Row(modifier = Modifier.fillMaxWidth().padding(top=8.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.Center){
                     for (i in 0..4) {
                         Column(
                             horizontalAlignment = Alignment.CenterHorizontally,
                             modifier = Modifier.padding(end = 8.dp)
                         ) {
-                            Text(text =""
 
-                               , fontSize = 20.sp)
+
+                                Text(text =if(code.value.length > i){code.value[i].toString()}else{" "}
+                                    , fontSize = 20.sp)
+                            Log.d("Egor1",code.value.length.toString())
+
+
+
                             Spacer(
                                 modifier = Modifier.width(30.dp).height(2.dp).background(Color.Blue)
                             )
+
                         }
                     }
                 }
