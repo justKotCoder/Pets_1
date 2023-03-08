@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Pets</string>
     <string name="xyz">Мы выслали вам на почту шестизначный код. Если он не пришел в течении минуты - запросите повторное письмо для подтверждения.</string>
+    <string name="title_activity_main3">MainActivity3</string>
+    <string name="title_activity_main_authorization">MainAuthorization</string>
     Б
 </resources>

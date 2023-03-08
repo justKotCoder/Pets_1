@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "937401778925",
+    "project_id": "pets-35943",
+    "storage_bucket": "pets-35943.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:937401778925:android:3d9dc45543df1d92b842e4",
+        "android_client_info": {
+          "package_name": "com.example.pets"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "937401778925-pvoj3o6jrces5v1i7urjvuvct014c57h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pets",
+            "certificate_hash": "c55c05550c20a0fe2e23957838f6ce9452d937f5"
+          }
+        },
+        {
+          "client_id": "937401778925-j52q981igo8iknplebo2p2ehufjfgeig.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAJxeoJZ6MTBWADJgj29YKPrJ-6p2aQOA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "937401778925-j52q981igo8iknplebo2p2ehufjfgeig.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

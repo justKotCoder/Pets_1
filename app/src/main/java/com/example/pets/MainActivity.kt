@@ -41,10 +41,12 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
+
     @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
     @OptIn(ExperimentalFoundationApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         lifecycleScope.launch {
             delay(50)
             window.setBackgroundDrawableResource(android.R.color.transparent)
@@ -118,7 +120,7 @@ class MainActivity : ComponentActivity() {
                             }
                         }
                     }) {
-                        Nav()
+                        Window_Autorization()
 
 
                     }
