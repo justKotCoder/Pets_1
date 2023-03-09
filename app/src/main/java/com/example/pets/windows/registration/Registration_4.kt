@@ -24,14 +24,19 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.pets.R
+import com.example.pets.interface_object.parameter_1
 import com.example.pets.navigation.navigator
 import com.example.pets.test_value.visibility1
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 import kotlinx.coroutines.launch
 
 @Composable
 @Preview(showSystemUi = true, showBackground = true)
-fun Window_Registration_4(){
+fun Window_Registration_4( ){
+
     var password by remember {
         mutableStateOf("")
     }
@@ -128,6 +133,7 @@ fun Window_Registration_4(){
             Button(onClick = {
                 if(password==copy_password &&password.length>8 &&copy_password.length>8)
                 navigator?.run { navigate("Autorization"){popUpTo(0)}
+
                 }
                 else{
                     Error=true

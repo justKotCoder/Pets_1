@@ -2,7 +2,8 @@ package com.example.pets.windows
 
 
 
-import androidx.compose.foundation.background
+import android.app.Activity
+import android.content.Intent
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -17,8 +18,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
+import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.pets.ActivityManu.PatsCard
 import com.example.pets.R
 import com.example.pets.navigation.navigator
 
@@ -26,8 +30,8 @@ import com.example.pets.test_value.visibility1
 import kotlinx.coroutines.launch
 
 @Composable
-@Preview(showSystemUi = true, showBackground = true)
-fun Window_Registration(){
+@Preview( showBackground = true)
+fun Window_Registration(@PreviewParameter(PreviewParameterProvider::class) activity: Activity){
     var email by remember {
         mutableStateOf("")
     }
@@ -99,6 +103,7 @@ fun Window_Registration(){
                 )
             }
             Button(onClick = {
+
                 scope.launch {
                     snackbarHostState.value.showSnackbar("Регистрация произошла успешно")
                 }

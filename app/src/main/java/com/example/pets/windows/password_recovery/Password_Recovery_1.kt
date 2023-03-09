@@ -20,6 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.pets.R
+import com.example.pets.logic.asynkClass.FunSendMess.sendNessage
 import com.example.pets.navigation.navigator
 
 import com.example.pets.test_value.visibility1
@@ -85,3 +86,5 @@ fun Window_Password_Recovery_1(){
 
     }
 }
+
+

@@ -25,7 +25,7 @@ fun Nav(){
             Window_Pasport()
         }
         composable(route = "Registration") {
-            Window_Registration()
+            //Window_Registration()
         }
         composable(route = "Autorization") {
             Window_Autorization()

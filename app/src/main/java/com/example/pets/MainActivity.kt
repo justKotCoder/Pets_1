@@ -33,6 +33,7 @@ import com.example.pets.setting.color
 import androidx.compose.runtime.*
 import androidx.compose.runtime.remember
 import androidx.lifecycle.lifecycleScope
+import com.example.pets.ActivityManu.MainAuthorization
 import com.example.pets.test_value.visibility1
 import com.example.pets.ui.theme.PetsTheme
 import com.example.pets.windows.*
@@ -41,10 +42,12 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
+
     @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
     @OptIn(ExperimentalFoundationApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         lifecycleScope.launch {
             delay(50)
             window.setBackgroundDrawableResource(android.R.color.transparent)
@@ -118,9 +121,8 @@ class MainActivity : ComponentActivity() {
                             }
                         }
                     }) {
-                        Nav()
-
-
+                        val intent = Intent(this, MainAuthorization::class.java)
+                        startActivity(intent)
                     }
                 }
             }

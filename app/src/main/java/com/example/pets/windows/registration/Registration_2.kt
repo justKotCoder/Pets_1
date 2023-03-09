@@ -7,16 +7,12 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.filled.Lock
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -24,12 +20,12 @@ import androidx.compose.ui.unit.sp
 import com.example.pets.R
 import com.example.pets.navigation.navigator
 
-import com.example.pets.test_value.visibility1
-import kotlinx.coroutines.launch
+val fielForcheckCode: Int= localcode
 
 @Composable
 @Preview(showSystemUi = true, showBackground = true)
 fun Window_Registration_2(){
+
     var code = remember {
         mutableStateOf("")
     }
@@ -73,6 +69,7 @@ fun Window_Registration_2(){
                 Row(modifier = Modifier.fillMaxWidth().padding(top=8.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.Center){
                     for (i in 0..4) {
                         Column(
+
                             horizontalAlignment = Alignment.CenterHorizontally,
                             modifier = Modifier.padding(end = 8.dp)
                         ) {
@@ -95,8 +92,12 @@ fun Window_Registration_2(){
             Text(text = "Неверный код, попробуйте еще раз", fontSize = 12.sp, color = Color.Red, modifier = Modifier.padding(top=8.dp))
             Button(onClick = {
 
-                navigator?.run { navigate("Registration_3")}
-
+                if (fielForcheckCode.toString()==code.value) {
+                    navigator?.run { navigate("Registration_3") }
+                }
+                else{
+                    println("Error")
+                }
             },
                 shape = RoundedCornerShape(20.dp),
                 colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(id = R.color.icon), contentColor = Color.Black),

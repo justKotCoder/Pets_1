@@ -12,6 +12,56 @@
         android:theme="@style/Theme.Pets"
         tools:targetApi="31">
         <activity
+            android:name=".ActivityManu.PatsCard"
+            android:exported="false"
+            android:label="@string/title_activity_pats_card"
+            android:theme="@style/Theme.Pets">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ActivityManu.PasswordActivity"
+            android:exported="false"
+            android:label="@string/title_activity_password"
+            android:theme="@style/Theme.Pets">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ActivityManu.NameActivity"
+            android:exported="false"
+            android:label="@string/title_activity_name"
+            android:theme="@style/Theme.Pets">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ActivityManu.CheckingCode"
+            android:exported="false"
+            android:label="@string/title_activity_checking_code"
+            android:theme="@style/Theme.Pets">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ActivityManu.MainAuthorization"
+            android:exported="false"
+            android:label="@string/title_activity_registration"
+            android:theme="@style/Theme.Pets">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ActivityManu.RegistrationActivity"
+            android:exported="false"
+            android:label="@string/title_activity_main_authorization"
+            android:theme="@style/Theme.Pets" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
