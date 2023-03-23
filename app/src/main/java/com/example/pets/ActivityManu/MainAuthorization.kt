@@ -51,6 +51,7 @@ class MainAuthorization : ComponentActivity() {
             startActivity(intent)
         }
     }
+
     @Composable
     @Preview(showSystemUi = true, showBackground = true)
     fun Window_Autorization() {
